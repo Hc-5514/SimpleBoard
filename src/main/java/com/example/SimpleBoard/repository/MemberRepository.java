@@ -4,12 +4,14 @@ import com.example.SimpleBoard.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 public class MemberRepository implements MemberRepositoryInterface {
 
+    @PersistenceContext
     private final EntityManager em;
 
     public MemberRepository(EntityManager em) {
@@ -30,9 +32,13 @@ public class MemberRepository implements MemberRepositoryInterface {
 
     @Override
     public Optional<Member> findByMember_id(String member_id) {
-        List<Member> result = em.createQuery("Select m from member m where m.member_id =: member_id", Member.class)
-                .setParameter("member_id", member_id)
-                .getResultList();
+        List<Member> result = em.createQuery("Select m from member m where m.member_id =: member_id", Member.class).setParameter("member_id", member_id).getResultList();
+        return result.stream().findAny();
+    }
+
+    @Override
+    public Optional<Member> findByNickname(String nickname) {
+        List<Member> result = em.createQuery("Select m from member m where m.nickname = : nickname", Member.class).setParameter("nickname", nickname).getResultList();
         return result.stream().findAny();
     }
 }

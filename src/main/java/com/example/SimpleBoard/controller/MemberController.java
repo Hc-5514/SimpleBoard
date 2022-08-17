@@ -1,18 +1,26 @@
 package com.example.SimpleBoard.controller;
 
+import com.example.SimpleBoard.domain.Member;
+import com.example.SimpleBoard.dto.MemberDto;
+import com.example.SimpleBoard.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MemberController {
 
-    @GetMapping("login")
-    public String login(){
-        return "member/login";
+    MemberService memberService;
+
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
     }
 
-    @GetMapping("join")
-    public String join(){
-        return "member/join";
+    @PostMapping("join")
+    public String join(MemberDto memberDto) {
+        Member member = new Member(memberDto.getMemberId(), memberDto.getPassword(), memberDto.getNickname());
+        memberService.join(member);
+        return "redirect:/";
     }
 }
