@@ -1,7 +1,8 @@
 package com.example.SimpleBoard.controller;
 
 import com.example.SimpleBoard.domain.Member;
-import com.example.SimpleBoard.dto.MemberDto;
+import com.example.SimpleBoard.dto.MemberJoinDto;
+import com.example.SimpleBoard.dto.MemberLoginDto;
 import com.example.SimpleBoard.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,17 @@ public class MemberController {
     }
 
     @PostMapping("join")
-    public String join(MemberDto memberDto) {
-        Member member = new Member(memberDto.getMemberId(), memberDto.getPassword(), memberDto.getNickname());
+    public String join(MemberJoinDto memberJoinDto) {
+        Member member = new Member(memberJoinDto.getMemberId(), memberJoinDto.getPassword(), memberJoinDto.getNickname());
         memberService.join(member);
         return "redirect:/";
+    }
+
+    @PostMapping("login")
+    public String login(MemberLoginDto memberLoginDto) {
+        if(memberService.login(memberLoginDto.getMemberId(), memberLoginDto.getPassword()))
+            return "redirect:/";
+        else
+            return "redirect:/login";
     }
 }

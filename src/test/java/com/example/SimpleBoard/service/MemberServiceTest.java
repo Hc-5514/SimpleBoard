@@ -74,4 +74,21 @@ class MemberServiceTest {
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 닉네임입니다.");
     }
+
+    @Test
+    void 로그인() {
+
+        // given
+        Member member = new Member("테스트", "Test1", "닉네임");
+        memberService.join(member);
+
+        // when
+        Boolean loginResult = memberService.login("테스트", "Test1");
+
+        // then
+        if(loginResult)
+            System.out.println("로그인 성공");
+        else
+            System.out.println("로그인 실패");
+    }
 }

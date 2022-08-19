@@ -2,6 +2,7 @@ package com.example.SimpleBoard.domain;
 
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본 생성자 자동 추가: 기본 생성자의 접근 권한을 protected로 설정.
+@Getter
 @Entity(name = "member")
 public class Member {
 
@@ -28,21 +30,5 @@ public class Member {
         this.member_id = member_id;
         this.password = password;
         this.nickname = nickname;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getMember_id() {
-        return member_id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getNickname() {
-        return nickname;
     }
 }

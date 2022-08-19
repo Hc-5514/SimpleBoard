@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>SimpleBoard | 로그인</title>
 </head>
 <body>
-
+<form action="login" method="post">
+  <p>
+    <label for="txtMemberId">ID</label> &nbsp;
+    <input type="text" id="txtMemberId" name="memberId" placeholder="아이디를 입력해주세요.">
+  </p>
+  <p>
+    <label for="txtPassword">Password</label> &nbsp;
+    <input type="text" id="txtPassword" name="password" placeholder="비밀번호를 입력해주세요.">
+  </p>
+  <button type="submit" id="btnLogin">로그인</button>
+</form>
 </body>
 </html>

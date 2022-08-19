@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -40,5 +41,29 @@ public class MemberService {
         memberRepository.findByNickname(member.getNickname()).ifPresent(m -> {
             throw new IllegalStateException("이미 존재하는 닉네임입니다.");
         });
+    }
+
+    /**
+     * 로그인
+     */
+    public Boolean login(String loginId, String loginPw) {
+
+        Optional<Member> result = memberRepository.findByMember_id(loginId);
+        Member resultMember;
+        if (result.isPresent()) {
+            resultMember = result.get();
+        } else {
+            throw new IllegalStateException("존재하지 않는 회원입니다.");
+        }
+
+//        Member resultMember = memberRepository.findByMember_id(loginId).get();
+
+//        if (resultMember.equals(temp))
+//            return false;
+
+        if (!resultMember.getPassword().equals(loginPw))
+            return false;
+
+        return true;
     }
 }
