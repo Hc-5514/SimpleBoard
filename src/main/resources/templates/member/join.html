@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8">
   <title>SimpleBoard | 회원가입</title>
+  <link rel="stylesheet" href="/css/member/member.css" type="text/css"/>
 </head>
 <body>
-<form action="join" method="post">
-  <p>
-    <label for="txtMemberId">ID</label> &nbsp;
+<div class="container">
+  <form action="/join" method="post">
+    <img class="img-simple-board" src="/img/SimpleBoard.jpg">
     <input type="text" id="txtMemberId" name="memberId" placeholder="아이디를 입력해주세요.">
-  </p>
-  <p>
-    <label for="txtPassword">Password</label> &nbsp;
     <input type="text" id="txtPassword" name="password" placeholder="비밀번호를 입력해주세요.">
-  </p>
-  <p>
-    <label for="txtNickname">NickName</label> &nbsp;
     <input type="text" id="txtNickname" name="nickname" placeholder="닉네임을 입력해주세요.">
-  </p>
-  <button type="submit" id="btnJoin">회원가입</button>
-</form>
+    <button type="submit" id="btnJoin">회원가입</button>
+  </form>
+  <a href="/login" class="btn-member">계정이 있으신가요? 로그인</a>
+  <a href="/" class="btn-member">메인 화면으로 돌아가기</a>
+</div>
 </body>
 </html>

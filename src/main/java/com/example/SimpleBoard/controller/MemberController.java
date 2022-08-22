@@ -28,7 +28,7 @@ public class MemberController {
     @PostMapping("login")
     public String login(MemberLoginDto memberLoginDto) {
         if(memberService.login(memberLoginDto.getMemberId(), memberLoginDto.getPassword()))
-            return "redirect:/";
+            return "redirect:/board";
         else
             return "redirect:/login";
     }

@@ -1,0 +1,84 @@
+body {
+    background-color: aliceblue;
+}
+
+.container {
+    width: 350px;
+    height: 500px;
+    margin: 130px auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border: 1px solid #DBDBDB;
+    text-align: center;
+}
+
+img.img-simple-board {
+    align-self: center;
+    width: 300px;
+    margin: 35px 0;
+}
+
+#txtMemberId, #txtPassword, #txtNickname {
+    width: 270px;
+    height: 40px;
+    margin: 3px auto;
+    padding: 0 10px;
+    display: block;
+    background-color: #fafafa;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#txtMemberId::placeholder, #txtPassword::placeholder, #txtNickname::placeholder {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+#txtMemberId:focus, #txtPassword:focus, #txtNickname:focus {
+    border: 1px solid #8a8a8a;
+    outline: none;
+}
+
+#btnLogin, #btnJoin {
+    width: 268px;
+    height: 30px;
+    margin: 13px auto;
+    background-color: #0095f6;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#btnLogin:disabled, #btnJoin:disabled {
+    background-color: #B9DFFC;
+}
+
+#btnLogin:disabled:hover, #btnJoin:disabled:hover {
+    cursor: default;
+}
+
+#btnLogin:enabled:hover, #btnJoin:enabled:hover {
+    cursor: pointer;
+}
+
+#btnLogin:focus, #btnJoin:focus {
+    outline: none;
+}
+
+.btn-member {
+    color: #00366B;
+    align-self: center;
+    font-size: 12px;
+    margin-top: 30px;
+    text-decoration: none
+}
+
+.btn-member:hover {
+    cursor: pointer;
+}
