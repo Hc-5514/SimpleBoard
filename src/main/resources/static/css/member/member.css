@@ -82,3 +82,26 @@ img.img-simple-board {
 .btn-member:hover {
     cursor: pointer;
 }
+
+.btn-index {
+    margin-top: 100px;
+}
+
+.btn-index1, .btn-index2 {
+    color: #00366B;
+    font-size: 20px;
+    align-self: center;
+    text-decoration: none
+}
+
+.btn-index1 {
+    margin-right: 20px;
+}
+
+.btn-index2 {
+    margin-left: 20px;
+}
+
+.btn-index1:hover, .btn-index2:hover {
+    cursor: pointer;
+}
