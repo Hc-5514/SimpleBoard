@@ -24,15 +24,15 @@ public class MemberService {
      */
     public Long join(Member member) {
         // 아이디 및 닉네임 중복 검사
-        validateDuplicateMemberId(member);
+        validateDuplicateIdLogin(member);
         validateDuplicateMemberNickname(member);
 
         memberRepository.save(member);
         return member.getId();
     }
 
-    private void validateDuplicateMemberId(Member member) {
-        memberRepository.findByMember_id(member.getMember_id()).ifPresent(m -> {
+    private void validateDuplicateIdLogin(Member member) {
+        memberRepository.findByIdLogin(member.getIdLogin()).ifPresent(m -> {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
         });
     }
@@ -48,7 +48,7 @@ public class MemberService {
      */
     public Boolean login(String loginId, String loginPw) {
 
-        Optional<Member> result = memberRepository.findByMember_id(loginId);
+        Optional<Member> result = memberRepository.findByIdLogin(loginId);
         Member resultMember;
         if (result.isPresent()) {
             resultMember = result.get();

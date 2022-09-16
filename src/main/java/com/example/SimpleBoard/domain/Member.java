@@ -19,15 +19,15 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String member_id;
+    private String idLogin;
 
     private String password;
 
     private String nickname;
 
     @Builder
-    public Member(String member_id, String password, String nickname) {
-        this.member_id = member_id;
+    public Member(String idLogin, String password, String nickname) {
+        this.idLogin = idLogin;
         this.password = password;
         this.nickname = nickname;
     }

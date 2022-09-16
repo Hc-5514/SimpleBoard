@@ -31,8 +31,8 @@ public class MemberRepository implements MemberRepositoryInterface {
     }
 
     @Override
-    public Optional<Member> findByMember_id(String member_id) {
-        List<Member> result = em.createQuery("Select m from member m where m.member_id=:member_id", Member.class).setParameter("member_id", member_id).getResultList();
+    public Optional<Member> findByIdLogin(String idLogin) {
+        List<Member> result = em.createQuery("Select m from member m where m.idLogin=:idLogin", Member.class).setParameter("idLogin", idLogin).getResultList();
         return result.stream().findAny();
     }
 

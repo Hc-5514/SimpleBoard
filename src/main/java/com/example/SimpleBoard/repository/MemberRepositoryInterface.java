@@ -10,7 +10,7 @@ public interface MemberRepositoryInterface {
 
     Optional<Member> findById(Long Id);
 
-    Optional<Member> findByMember_id(String member_id);
+    Optional<Member> findByIdLogin(String member_id);
 
     Optional<Member> findByNickname(String nickname);
 }

@@ -20,14 +20,14 @@ public class MemberController {
 
     @PostMapping("join")
     public String join(MemberJoinDto memberJoinDto) {
-        Member member = new Member(memberJoinDto.getMemberId(), memberJoinDto.getPassword(), memberJoinDto.getNickname());
+        Member member = new Member(memberJoinDto.getIdLogin(), memberJoinDto.getPassword(), memberJoinDto.getNickname());
         memberService.join(member);
         return "redirect:/";
     }
 
     @PostMapping("login")
     public String login(MemberLoginDto memberLoginDto) {
-        if(memberService.login(memberLoginDto.getMemberId(), memberLoginDto.getPassword()))
+        if(memberService.login(memberLoginDto.getIdLogin(), memberLoginDto.getPassword()))
             return "redirect:/board";
         else
             return "redirect:/login";

@@ -42,7 +42,7 @@ class MemberServiceTest {
 
         // then
         Member resultMember = memberRepository.findById(resultId).get();
-        Assertions.assertThat(member.getMember_id()).isEqualTo(resultMember.getMember_id());
+        Assertions.assertThat(member.getIdLogin()).isEqualTo(resultMember.getIdLogin());
     }
 
     @Test
